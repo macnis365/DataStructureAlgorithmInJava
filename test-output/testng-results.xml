@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="428483" started-at="2016-11-01T14:24:29Z" finished-at="2016-11-01T14:31:38Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="428483" started-at="2016-11-01T14:24:29Z" finished-at="2016-11-01T14:31:38Z">
+      <class name="com.mathematica.ds.tree.BinaryTreeNodeTest">
+        <test-method status="PASS" signature="TestPostOrderTravesalIterative()[pri:0, instance:com.mathematica.ds.tree.BinaryTreeNodeTest@1ffe63b9]" name="TestPostOrderTravesalIterative" duration-ms="428449" started-at="2016-11-01T19:54:29Z" finished-at="2016-11-01T20:01:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestPostOrderTravesalIterative -->
+      </class> <!-- com.mathematica.ds.tree.BinaryTreeNodeTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
