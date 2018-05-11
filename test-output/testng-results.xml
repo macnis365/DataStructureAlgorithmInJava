@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="428483" started-at="2016-11-01T14:24:29Z" finished-at="2016-11-01T14:31:38Z">
+  <suite name="Default suite" duration-ms="53" started-at="2018-03-24T11:38:01Z" finished-at="2018-03-24T11:38:01Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="428483" started-at="2016-11-01T14:24:29Z" finished-at="2016-11-01T14:31:38Z">
-      <class name="com.mathematica.ds.tree.BinaryTreeNodeTest">
-        <test-method status="PASS" signature="TestPostOrderTravesalIterative()[pri:0, instance:com.mathematica.ds.tree.BinaryTreeNodeTest@1ffe63b9]" name="TestPostOrderTravesalIterative" duration-ms="428449" started-at="2016-11-01T19:54:29Z" finished-at="2016-11-01T20:01:38Z">
+    <test name="Default test" duration-ms="53" started-at="2018-03-24T11:38:01Z" finished-at="2018-03-24T11:38:01Z">
+      <class name="com.mathematica.heap.HeapTest">
+        <test-method status="PASS" signature="delete()[pri:0, instance:com.mathematica.heap.HeapTest@6276ae34]" name="delete" duration-ms="22" started-at="2018-03-24T17:08:01Z" finished-at="2018-03-24T17:08:01Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TestPostOrderTravesalIterative -->
-      </class> <!-- com.mathematica.ds.tree.BinaryTreeNodeTest -->
+        </test-method> <!-- delete -->
+      </class> <!-- com.mathematica.heap.HeapTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

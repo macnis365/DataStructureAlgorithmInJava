@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.mathematica.ds.tree.BinaryTreeNodeTest">
+      <class name="com.mathematica.heap.HeapTest">
         <methods>
-          <include name="TestPostOrderTraversal"/>
+          <include name="delete"/>
         </methods>
-      </class> <!-- com.mathematica.ds.tree.BinaryTreeNodeTest -->
+      </class> <!-- com.mathematica.heap.HeapTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
