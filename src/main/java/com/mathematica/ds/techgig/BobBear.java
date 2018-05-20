@@ -7,7 +7,7 @@ import java.util.*;
 
 public class BobBear {
 
-    private static class Salmon implements Comparable{
+    private static class Salmon{
         double headPosition;
         double tailPosition;
         double length;
@@ -18,17 +18,34 @@ public class BobBear {
             this.tailPosition = this.headPosition+length;
         }
 
-        @Override
+        /*@Override
         public int compareTo(Object obj) {
             Salmon salmon = (Salmon) obj;
             return (int) (this.tailPosition - salmon.tailPosition);
+        }*/
+
+        @Override
+        public String toString() {
+            return this.headPosition + ", " +this.tailPosition;
+        }
+    }
+
+    private static class SalmonTailComparator implements Comparator<Salmon>{
+
+        @Override
+        public int compare(Salmon salmon1, Salmon salmon2) {
+            if( salmon1.tailPosition < salmon2.tailPosition) return -1;
+            if(salmon1.tailPosition > salmon2.tailPosition) return 1;
+            return 0;
         }
     }
 
 
     public static void main(String[] args) throws IOException {
         Instant begin = Instant.now();
-        BufferedReader reader = new BufferedReader(new FileReader("G:\\Workspace\\Git_Workspace\\DataStructureAlgorithmInJava\\src\\main\\java\\com\\mathematica\\ds\\techgig\\bob_test_data1.txt"));
+//        BufferedReader reader = new BufferedReader(new FileReader("G:\\Workspace\\Git_Workspace\\DataStructureAlgorithmInJava\\src\\main\\java\\com\\mathematica\\ds\\techgig\\bob_test_data1.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("G:\\Workspace\\Git_Workspace\\DataStructureAlgorithmInJava\\src\\main\\java\\com\\mathematica\\ds\\techgig\\bob_test_data2.txt"));
+
         String numberOfSalmon = reader.readLine();
 
         int n = Integer.parseInt(numberOfSalmon);
@@ -37,11 +54,13 @@ public class BobBear {
         for(int i = 0; i<n; i++){
             String input = reader.readLine();
             String[] salmonPosition = input.split(",");
-            salmons[i] = new Salmon(Double.parseDouble(salmonPosition[0]), Double.parseDouble(salmonPosition[1]));
+            salmons[i] = new Salmon(Double.parseDouble(salmonPosition[1]), Double.parseDouble(salmonPosition[0]));
         }
+        Arrays.sort(salmons, new SalmonTailComparator());
 
-        Arrays.sort(salmons);
-
+        for(int i = 0; i<n; i++){
+            System.out.println(salmons[i]);
+        }
         PriorityQueue<Integer> numberOfSalmonOnEachSelection = new PriorityQueue<>(Collections.reverseOrder());
         System.out.println(getMaxSalmonCaughtByBob(salmons, numberOfSalmonOnEachSelection));
         Instant end = Instant.now();
