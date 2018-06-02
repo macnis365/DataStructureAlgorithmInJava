@@ -44,7 +44,7 @@ public class BobBear {
     public static void main(String[] args) throws IOException {
         Instant begin = Instant.now();
 //        BufferedReader reader = new BufferedReader(new FileReader("G:\\Workspace\\Git_Workspace\\DataStructureAlgorithmInJava\\src\\main\\java\\com\\mathematica\\ds\\techgig\\bob_test_data1.txt"));
-        BufferedReader reader = new BufferedReader(new FileReader("G:\\Workspace\\Git_Workspace\\DataStructureAlgorithmInJava\\src\\main\\java\\com\\mathematica\\ds\\techgig\\bob_test_data2.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("G:\\Workspace\\Git_Workspace\\DataStructureAlgorithmInJava\\src\\main\\java\\com\\mathematica\\ds\\techgig\\bob_test_data1.txt"));
 
         String numberOfSalmon = reader.readLine();
 
