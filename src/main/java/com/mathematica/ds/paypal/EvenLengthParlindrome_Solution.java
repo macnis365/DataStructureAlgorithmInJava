@@ -4,12 +4,12 @@ import java.util.*;
 
 public class EvenLengthParlindrome_Solution {
 
-    private static List<Map.Entry<Integer, Integer>> sortByFrequency(Map<Integer, Integer> unsortedMap){
+    private static List<Map.Entry<Integer, Integer>> sortByFrequency(Map<Integer, Integer> unsortedMap) {
         List<Map.Entry<Integer, Integer>> list = new LinkedList<Map.Entry<Integer, Integer>>(unsortedMap.entrySet());
         Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
             @Override
             public int compare(Map.Entry<Integer, Integer> digit1, Map.Entry<Integer, Integer> digit2) {
-                if(digit1.getValue().equals(digit2.getValue())){
+                if (digit1.getValue().equals(digit2.getValue())) {
                     return digit1.getKey().compareTo(digit2.getKey());
 
                 }
@@ -26,13 +26,15 @@ public class EvenLengthParlindrome_Solution {
         return list;
     }
 
-    public static int getMaxRepetaionDigitX(Map<Integer, Integer> unsortedMap){
+    public static int getMaxRepetaionDigitX(Map<Integer, Integer> unsortedMap) {
         List<Map.Entry<Integer, Integer>> list = sortByFrequency(unsortedMap);
         return list.get(0).getKey();
     }
+
     public static void main(String[] args) {
 //        String evenLengthParlindrome = "1105223";
-        String evenLengthParlindrome = "1100005223";
+//        String evenLengthParlindrome = "110005555222333";
+        String evenLengthParlindrome = "155";
         HashMap<Integer, Integer> result = new HashMap<>(10);
         for (int i = 0; i < evenLengthParlindrome.length(); i++) {
             int digit = Character.getNumericValue(evenLengthParlindrome.charAt(i));
