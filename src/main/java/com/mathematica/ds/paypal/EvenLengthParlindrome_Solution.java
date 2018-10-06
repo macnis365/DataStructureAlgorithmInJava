@@ -34,19 +34,24 @@ public class EvenLengthParlindrome_Solution {
     public static void main(String[] args) {
 //        String evenLengthParlindrome = "1105223";
 //        String evenLengthParlindrome = "110005555222333";
-        String evenLengthParlindrome = "155";
-        HashMap<Integer, Integer> result = new HashMap<>(10);
-        for (int i = 0; i < evenLengthParlindrome.length(); i++) {
-            int digit = Character.getNumericValue(evenLengthParlindrome.charAt(i));
-            if (result.containsKey(digit)) {
-                result.put(digit, result.get(digit) + 1);
-            } else {
-                result.put(digit, 1);
-            }
-        }
-//        Map<Integer, Integer> output = sortByFrequency(result);
+//        String evenLengthParlindrome = "155";
 
-        System.out.println(getMaxRepetaionDigitX(result));
+
+        Scanner scan = new Scanner(System.in);
+        int testCase = scan.nextInt();
+        for(int times = 0; times<testCase; times++){
+            String evenLengthParlindrome = scan.next();
+            HashMap<Integer, Integer> result = new HashMap<>(10);
+            for (int i = 0; i < evenLengthParlindrome.length(); i++) {
+                int digit = Character.getNumericValue(evenLengthParlindrome.charAt(i));
+                if (result.containsKey(digit)) {
+                    result.put(digit, result.get(digit) + 1);
+                } else {
+                    result.put(digit, 1);
+                }
+            }
+            System.out.println(getMaxRepetaionDigitX(result));
+        }
 
 
     }
