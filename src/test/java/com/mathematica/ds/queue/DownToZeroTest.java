@@ -15,6 +15,6 @@ public class DownToZeroTest {
     @Test
     public void testNumberOfMovesToZero(){
         DownToZero downToZero = new DownToZero();
-        System.out.println(downToZero.numberOfMovesToZero(99999));
+        System.out.println(downToZero.numberOfMovesToZero(167975));
     }
 }

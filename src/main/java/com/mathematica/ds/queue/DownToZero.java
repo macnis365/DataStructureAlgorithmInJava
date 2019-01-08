@@ -7,15 +7,15 @@ import java.util.List;
 public class DownToZero {
 
     public DownToZero() {
-        tableOfMoves = new ArrayList<Integer>(1000000);
-        for(int i = 0; i<100000; i++){
+        tableOfMoves = new ArrayList<Integer>(1000001);
+        for (int i = 0; i < 1000001; i++) {
             tableOfMoves.add(i, 0);
         }
     }
 
-    List<Integer> tableOfMoves;
+    static List<Integer> tableOfMoves;
 
-    public int numberOfMovesToZero(Integer number) {
+    public static int numberOfMovesToZero(Integer number) {
         if (number == 0) return 0;
         if (number == 1) return 1;
         if (number == 2) return 2;
@@ -27,7 +27,7 @@ public class DownToZero {
         int currentOptimalFactor = findOptimalFactorOf(number);
         if (currentOptimalFactor == 1) {
             tableOfMoves.add(number, 1 + numberOfMovesToZero(number - 1));
-        }else{
+        } else {
             tableOfMoves.add(number, 1 + numberOfMovesToZero(currentOptimalFactor));
         }
 
@@ -40,6 +40,7 @@ public class DownToZero {
             if (number % i == 0) {
                 int reminder = number / i;
                 int divisor = i;
+                System.out.println("pair of factor ("+reminder+" ,"+divisor+")");
                 minimumFactor = Math.min(minimumFactor, Math.max(reminder, divisor));
             }
         }
