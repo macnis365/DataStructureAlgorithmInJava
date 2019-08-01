@@ -31,8 +31,8 @@ public class Solution_DocumentManagementSystem {
         Node root = new Node(new Heading(0, ""));
         Heading rootHeading = headings.get(0);
         root.children.add(new Node(rootHeading));
-
         Map<Integer, Node> dictionary = new HashMap<>();
+        dictionary.put(0, root);
         Node currentHeadNode = root.children.get(0);
         int index = 1;
         while (index < headings.size()) {
