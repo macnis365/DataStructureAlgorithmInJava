@@ -38,13 +38,19 @@ public class Solution_DocumentManagementSystem {
         while (index < headings.size()) {
             Heading currentHeading = headings.get(index);
             Node headNode = dictionary.get(currentHeading.weight - 1);
-            if (headNode == null || !headNode.heading.text.equals(currentHeading.text)) {
+            if (headNode == null || headNode.heading.weight == currentHeading.weight) {
                 dictionary.put(currentHeading.weight - 1, currentHeadNode);
                 headNode = currentHeadNode;
             }
+
             headNode.children.add(new Node(currentHeading));
-            int childIndex = currentHeadNode.children.size();
-            currentHeadNode = currentHeadNode.children.get(childIndex-1);
+            int childIndex = currentHeadNode.children.size() - 1;
+            if (childIndex >= 0) {
+                currentHeadNode = currentHeadNode.children.get(childIndex);
+            }
+            if (dictionary.containsKey(currentHeading.weight)) {
+                dictionary.put(currentHeading.weight, headNode.children.get(headNode.children.size()-1));
+            }
             index++;
         }
         return root;
