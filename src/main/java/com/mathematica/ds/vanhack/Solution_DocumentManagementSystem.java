@@ -44,9 +44,9 @@ public class Solution_DocumentManagementSystem {
             }
 
             headNode.children.add(new Node(currentHeading));
-            int childIndex = currentHeadNode.children.size() - 1;
+            int childIndex = headNode.children.size() - 1;
             if (childIndex >= 0) {
-                currentHeadNode = currentHeadNode.children.get(childIndex);
+                currentHeadNode = headNode.children.get(childIndex);
             }
             if (dictionary.containsKey(currentHeading.weight)) {
                 dictionary.put(currentHeading.weight, headNode.children.get(headNode.children.size()-1));
@@ -54,5 +54,6 @@ public class Solution_DocumentManagementSystem {
             index++;
         }
         return root;
+
     }
 }
