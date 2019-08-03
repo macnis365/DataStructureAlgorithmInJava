@@ -7,11 +7,11 @@ public class Solution_StockinfoTest {
 
     @Test
     public void testPositive() {
-        Solution_Stockinfo.openAndClosePrices("01-January-2000", "22-February-2000", "Monday");
+        Solution_Stockinfo.openAndClosePrices("1-January-2000", "22-February-2000", "Monday");
     }
 
     @Test
     public void testHttp(){
-        Solution_Stockinfo.httpGet();
+//        Solution_Stockinfo.httpGet();
     }
 }

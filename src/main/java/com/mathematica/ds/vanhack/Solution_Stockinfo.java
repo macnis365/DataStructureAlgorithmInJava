@@ -17,20 +17,28 @@ import java.util.stream.Stream;
 public class Solution_Stockinfo {
 
     public static void openAndClosePrices(String firstDate, String lastDate, String weekDay) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-MMMM-yyyy");
         System.out.println(LocalDate.parse(firstDate, formatter).format(formatter));
         System.out.println(LocalDate.parse(lastDate, formatter).format(formatter));
 
         long numOfDays = ChronoUnit.DAYS.between(LocalDate.parse(firstDate, formatter), LocalDate.parse(lastDate, formatter));
         List<LocalDate> daysRange = Stream.iterate(LocalDate.parse(firstDate, formatter), date -> date.plusDays(1)).limit(numOfDays).filter(date -> date.getDayOfWeek() == DayOfWeek.valueOf(weekDay.toUpperCase())).collect(Collectors.toList());
+        String stockUrl = "https://jsonmock.hackerrank.com/api/stocks/?date=";
         daysRange.stream().map(date -> date.format(formatter)).forEach(System.out::println);
+        daysRange.stream().map(date -> date.format(formatter)).forEach((date) -> {
+            httpGet(stockUrl + date.toString());
+        });
     }
 
-    public static void httpGet() {
+    public static void httpGet(String stockUrl) {
         Gson gson = new Gson();
-        try (java.util.Scanner s = new java.util.Scanner(new URL("https://jsonmock.hackerrank.com/api/stocks/?date=9-October-2002").openStream())) {
+        try (java.util.Scanner s = new java.util.Scanner(new URL(stockUrl).openStream())) {
             Stock stock = gson.fromJson(s.next(), Stock.class);
-            System.out.println(Arrays.toString(stock.getData()));
+            Arrays.asList(stock.getData()).stream().filter(date ->
+                    !date.getOpen().isEmpty() && !date.getClose().isEmpty()
+            ).forEach((date) -> {
+                System.out.println(date.getDate() + " " + date.getOpen() + " " + date.getClose());
+            });
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
