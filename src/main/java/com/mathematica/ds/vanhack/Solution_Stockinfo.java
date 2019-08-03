@@ -100,7 +100,7 @@ class Stock {
 
     @Override
     public String toString() {
-        return "Stock [per_page = " + per_page + ", total = " + total + ", data = " + data + ", page = " + page + ", total_pages = " + total_pages + "]";
+        return "Stock [per_page = " + per_page + ", total = " + total + ", data = " + Arrays.toString(data) + ", page = " + page + ", total_pages = " + total_pages + "]";
     }
 }
 
